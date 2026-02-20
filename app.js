@@ -155,8 +155,8 @@ async function getRecipes() {
   `;
 
   try {
-    // Kirim ke backend lokal (bukan langsung ke Anthropic)
-    const res = await fetch('/api/resep', {
+    // Kirim ke backend lokal 
+    const res = await fetch('https://akbarnasa-recipes-generator.hf.space/api/resep', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt: buildPrompt(cuisine, difficulty, count) })
