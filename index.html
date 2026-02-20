@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resep Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- ─── Header ─── -->
+    <header>
+      <span class="logo-icon">🥘</span>
+      <h1>Dapur <em>Pintar</em></h1>
+      <div class="divider"></div>
+      <p class="tagline">Masukkan bahan yang ada, kami carikan resepnya</p>
+    </header>
+
+    <!-- ─── Input Card ─── -->
+    <div class="input-card">
+      <div class="input-label">🥑 Bahan-bahan yang tersedia</div>
+      <div class="input-hint">Ketik nama bahan lalu tekan Enter atau koma untuk menambahkan</div>
+
+      <div class="tag-input-wrap" id="tagWrap" onclick="document.getElementById('ingredientInput').focus()">
+        <input type="text" id="ingredientInput" placeholder="cth: ayam, tomat, bawang…" autocomplete="off">
+      </div>
+
+      <div class="suggestions">
+        <span class="sugg-label">Cepat tambah:</span>
+        <button class="sugg-btn" onclick="addSuggestion('Ayam')">🍗 Ayam</button>
+        <button class="sugg-btn" onclick="addSuggestion('Tahu')">🟨 Tahu</button>
+        <button class="sugg-btn" onclick="addSuggestion('Telur')">🥚 Telur</button>
+        <button class="sugg-btn" onclick="addSuggestion('Tempe')">🟫 Tempe</button>
+        <button class="sugg-btn" onclick="addSuggestion('Bayam')">🥬 Bayam</button>
+        <button class="sugg-btn" onclick="addSuggestion('Kentang')">🥔 Kentang</button>
+        <button class="sugg-btn" onclick="addSuggestion('Ikan')">🐟 Ikan</button>
+        <button class="sugg-btn" onclick="addSuggestion('Udang')">🦐 Udang</button>
+        <button class="sugg-btn" onclick="addSuggestion('Terigu')">🌾 Terigu</button>
+        <button class="sugg-btn" onclick="addSuggestion('Nasi')">🍚 Nasi</button>
+        <button class="sugg-btn" onclick="addSuggestion('Wortel')">🥕 Wortel</button>
+        <button class="sugg-btn" onclick="addSuggestion('Jagung')">🌽 Jagung</button>
+        <button class="sugg-btn" onclick="addSuggestion('Daging Sapi')">🥩 Daging Sapi</button>
+        <button class="sugg-btn" onclick="addSuggestion('Cabai')">🌶️ Cabai</button>
+        <button class="sugg-btn" onclick="addSuggestion('Santan')">🥥 Santan</button>
+      </div>
+
+      <div class="pref-row">
+        <div class="pref-group">
+          <label>Tingkat kesulitan</label>
+          <select id="difficulty">
+            <option value="mudah">Mudah (pemula)</option>
+            <option value="sedang" selected>Sedang</option>
+            <option value="sulit">Sulit (chef mode)</option>
+          </select>
+        </div>
+        <div class="pref-group">
+          <label>Jenis masakan</label>
+          <select id="cuisine">
+            <option value="Indonesia" selected>Masakan Indonesia</option>
+            <option value="Asia (umum)">Asia (umum)</option>
+            <option value="Barat">Masakan Barat</option>
+            <option value="Apa saja">Bebas / Mix</option>
+          </select>
+        </div>
+        <div class="pref-group">
+          <label>Jumlah resep</label>
+          <select id="count">
+            <option value="2">2 resep</option>
+            <option value="3" selected>3 resep</option>
+            <option value="5">5 resep</option>
+            <option value="10">10 resep</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn-cari" id="btnCari" onclick="getRecipes()">
+        <span>🔍</span> Carikan Resep
+      </button>
+    </div>
+
+    <!-- ─── Output Area ─── -->
+    <div id="output"></div>
+
+  </div>
+
+  <!-- ─── Modal Detail Resep ─── -->
+  <div class="modal-overlay hidden" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal" id="modal">
+      <div class="modal-handle"></div>
+      <div class="modal-header">
+        <button class="modal-close" onclick="hideModal()">✕</button>
+        <span class="modal-emoji" id="mEmoji"></span>
+        <div class="modal-title" id="mTitle"></div>
+        <div class="modal-meta-row" id="mMeta"></div>
+      </div>
+      <div class="modal-body" id="mBody"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
