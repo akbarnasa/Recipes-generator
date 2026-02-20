@@ -10,7 +10,7 @@ Aplikasi web untuk mendapatkan rekomendasi resep masakan berdasarkan bahan-bahan
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/AkbarNasa1/Recipes-generator.git
+git clone https://github.com/akbarnasa/Recipes-generator.git
 cd Recipes-generator
 ```
 
