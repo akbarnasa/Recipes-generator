@@ -115,7 +115,7 @@ Format JSON yang harus dikembalikan:
       "match_percent": angka 60-100,
       "ingredients_needed": ["bahan 1 + takaran", "bahan 2 + takaran"],
       "ingredients_owned": ["bahan dari daftar user yang dipakai"],
-      "steps": ["langkah 1", "langkah 2", "dst sampai selesai, minimal 7 langkah detail"],
+      "steps": ["langkah 1", "langkah 2", "dst sampai selesai, minimal 10 langkah detail, lengkap dan dapat dipahami pengguna"],
       "tip": "Tips memasak atau variasi yang berguna"
     }
   ]
@@ -125,7 +125,7 @@ Pastikan:
 - recipes adalah array dengan tepat ${count} item
 - emoji relevan dengan masakan (contoh: 🍜 untuk mie, 🍗 untuk ayam goreng, dll)
 - ingredients_owned hanya berisi bahan yang ADA di daftar bahan user
-- steps berisi langkah detail dan praktis
+- steps berisi langkah detail ,lengkap dan praktis
 - Resep sesuai tradisi masakan ${cuisine}`;
 }
 
